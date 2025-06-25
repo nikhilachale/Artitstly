@@ -53,7 +53,7 @@ export default function SimpleOnboardForm() {
     return (
       <div className="max-w-xl mx-auto p-6 text-center">
         <h2 className="text-2xl font-bold mb-4 text-green-700">Application Submitted!</h2>
-        <p className="text-gray-700">Thanks for applying. We'll review your details soon.</p>
+        <p className="text-gray-700">Thanks for applying</p>
         <button
           className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
           onClick={() => setSubmitted(false)}
