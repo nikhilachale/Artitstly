@@ -21,14 +21,12 @@ export default function Header() {
             Artistly
           </h1>
         </div>
-
         <div className="flex flex-wrap justify-center md:justify-start space-x-6 text-sm md:text-md">
-          <Link href="/" className="text-md font-semibold transition-colors hover:text-primary">Home</Link>
-          <Link href="/artists" className="text-md font-bold transition-colors hover:text-primary">Browse Artists</Link>
-          <Link href="/onboard" className="text-md font-bold transition-colors hover:text-primary">Join as Artist</Link>
-          <Link href="/dashboard" className="text-md font-bold transition-colors hover:text-primary">Dashboard</Link>
+          <Link href="/" className="text-md font-bold transition-colors hover:text-blue-600">Home</Link>
+          <Link href="/artists" className="text-md font-bold transition-colors hover:text-blue-600">Browse Artists</Link>
+          <Link href="/onboard" className="text-md font-bold transition-colors hover:text-blue-600">Join as Artist</Link>
+          <Link href="/dashboard" className="text-md font-bold transition-colors hover:text-blue-600">Dashboard</Link>
         </div>
-
         <div className="flex flex-wrap justify-center md:justify-end space-x-2">
           <button className="bg-white border font-bold rounded-sm text-black px-4 py-2 hover:bg-gray-100 transition-colors">
             Join as Artist
