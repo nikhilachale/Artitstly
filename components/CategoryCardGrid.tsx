@@ -46,7 +46,7 @@ export default function CategoryCardGrid() {
           viewport={{ once: false, amount: 0.1 }}
           transition={{ staggerChildren: 0.2 }}
         >
-          {categories.map((category, i) => (
+       {categories.map((category) => (
             <motion.div
               key={category.title}
               variants={{
