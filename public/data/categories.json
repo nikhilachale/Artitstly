@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Band",
+    "description": "High-energy live bands for unforgettable events",
+    "image": "/img/Band.jpg",
+    "count": 4
+  },
+  {
+    "title": "DJ",
+    "description": "Professional DJs to keep the vibe alive",
+    "image": "/img/DJ.jpg",
+    "count": 2
+  },
+  {
+    "title": "Singer",
+    "description": "Soulful and powerful vocalists for your special day",
+    "image": "/img/Singer.jpg",
+    "count": 1
+  },
+  {
+    "title": "Dancer",
+    "description": "Skilled performers with show-stopping routines",
+    "image": "/img/Dancer.jpg",
+    "count": 1
+  }
+]
