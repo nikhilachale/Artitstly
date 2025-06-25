@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
@@ -38,43 +39,56 @@ export default function CategoryCardGrid() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories.map((category) => (
-            <Card
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.1 }}
+          transition={{ staggerChildren: 0.2 }}
+        >
+          {categories.map((category, i) => (
+            <motion.div
               key={category.title}
-              className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.8,  ease: [0.22, 1, 0.36, 1] 
+                 }}
             >
-              <CardContent className="p-0">
-                <div className="relative">
-                  <div className="aspect-[4/3] relative overflow-hidden rounded-t-lg">
-                    <Image
-                      src={category.image}
-                      alt={`${category.title} category`}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <Badge className="absolute top-3 right-3 bg-white/90 text-gray-900">
-                      {category.count} Artists
-                    </Badge>
+              <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 cursor-pointer">
+                <CardContent className="p-0">
+                  <div className="relative">
+                    <div className="aspect-[4/3] relative overflow-hidden rounded-t-lg">
+                      <Image
+                        src={category.image}
+                        alt={`${category.title} category`}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <Badge className="absolute top-3 right-3 bg-white/90 text-gray-900">
+                        {category.count} Artists
+                      </Badge>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">
+                        {category.title}
+                      </h3>
+                      <p className="text-gray-600 mb-4">{category.description}</p>
+                      <Link
+                        href={`/artists?category=${category.title}`}
+                        className="block w-full text-center text-white px-4 py-2 rounded-md font-semibold bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition duration-300"
+                      >
+                        Explore {category.title}
+                      </Link>
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">
-                      {category.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4">{category.description}</p>
-                    <Link
-                      href={`/artists?category=${category.title}`}
-                      className="block w-full text-center text-white px-4 py-2 rounded-md font-semibold bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition duration-300"
-                    >
-                      Explore {category.title}
-                    </Link>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
